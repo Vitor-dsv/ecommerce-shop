@@ -13,7 +13,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      saira: ['Saira Stencil One'],
+      quick: ['Quicksand'],
     },
   },
   plugins: [],
