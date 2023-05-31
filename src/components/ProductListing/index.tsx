@@ -1,10 +1,14 @@
 import data from './preview-data.json';
 
 import GroupCard, { ICard } from "./GroupCard";
+import OrderCard from './OrderCard';
 
 const ProductListining = () => {
     return (
-        <GroupCard cards={(data.objetos as ICard[])} />
+        <>
+            <OrderCard />
+            <GroupCard cards={(data.objetos as ICard[])} />
+        </>
     )
 }
 
