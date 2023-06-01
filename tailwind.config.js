@@ -17,6 +17,11 @@ module.exports = {
     fontFamily: {
       quick: ['Quicksand'],
     },
+    screens: {
+      'md': {
+        'max': '767px'
+      }
+    }
   },
   plugins: [],
 }

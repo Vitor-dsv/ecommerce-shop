@@ -32,12 +32,12 @@ const options = [
 
 const OrderCard = () => (
     <>
-        <div className='mt-8 mb-8 ml-10 mr-10 h-12 flex justify-between'>
+        <div className='mt-8 mb-8 ml-10 mr-10 h-12 md:flex lg:flex md:flex-col justify-between md:m-4 md:h-20 md:gap-4'>
             <Categories oderCategories={categories} />
             <Dropdown className="z-50" options={options} />
         </div>
         <div className='m-0 p-0 mr-10 flex justify-end'>
-            <Pagination />
+            <Pagination activePage={1} quantityPage={6} />
         </div>
     </>
 )
