@@ -20,6 +20,9 @@ module.exports = {
     screens: {
       'md': {
         'max': '767px'
+      },
+      'dk': {
+        'min': '768px'
       }
     }
   },

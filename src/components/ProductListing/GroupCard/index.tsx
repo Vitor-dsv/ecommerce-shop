@@ -11,9 +11,9 @@ interface Props {
 }
 
 const GroupCard = ({ cards }: Props) => (
-    <div className="flex mt-8 mb-8 ml-5 mr-5 flex-wrap">
+    <div className="grid gap-10 grid-cols-5 grid-rows-6 md:grid-cols-2 md:gap-2 mt-8 mb-8 mx-24 md:mx-1">
         {cards.map((card, index) => (
-            <Card key={`card-${index}`} className="m-4 w-[calc((100% - 6rem) / 4)]" {...card} />
+            <Card key={`card-${index}`} className="mx-1 md:mx-2" {...card} />
         ))}
     </div>
 )

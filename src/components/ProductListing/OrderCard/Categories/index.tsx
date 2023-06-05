@@ -18,9 +18,9 @@ const Categories = ({ oderCategories }: Props) => {
     }
 
     return (
-        <div className="flex gap-10">
+        <div className="flex md:h-14 gap-10 md:gap-2">
             {oderCategories.map((categorie, index) => (
-                <p key={`categorie-${index}`} className={`h-8 p-0 m-0 font-black cursor-pointer transition ${getClassBorder(categorie.active)}`}>{categorie.name.toUpperCase()}</p>
+                <p key={`categorie-${index}`} className={`h-8 md:h-12 p-0 m-0 font-black cursor-pointer transition ${getClassBorder(categorie.active)}`}>{categorie.name.toUpperCase()}</p>
             ))}
         </div>
     )
