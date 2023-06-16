@@ -1,5 +1,6 @@
 package br.com.backend.resource;
 
+import br.com.backend.dto.ProductListDTO;
 import br.com.backend.entity.Product;
 import br.com.backend.service.ProductService;
 import jakarta.inject.Inject;
@@ -18,20 +19,20 @@ public class ProductResource {
     private ProductService productService;
 
     @GET
-    public List<Product> findAll() {
-        return Product.listAll();
+    public ProductListDTO findAll(@QueryParam("index") int index, @QueryParam("size") int size) {
+        return productService.get(index, size);
     }
 
     @GET
     @Path("price/lowest")
-    public List<Product> findLowestPrice() {
-        return productService.lowestPrice();
+    public ProductListDTO findLowestPrice(@QueryParam("index") int index, @QueryParam("size") int size) {
+        return productService.lowestPrice(index, size);
     }
 
     @GET
     @Path("price/highest")
-    public List<Product> findHighestPrice() {
-        return productService.highestPrice();
+    public ProductListDTO findHighestPrice(@QueryParam("index") int index, @QueryParam("size") int size) {
+        return productService.highestPrice(index, size);
     }
 
     @POST
