@@ -1,13 +1,8 @@
+import { TProductList } from "@/services/product/ProductModel"
 import Card from "./Card"
 
-export interface ICard {
-    img: string
-    name: string
-    value: string
-}
-
 interface Props {
-    cards: ICard[]
+    cards: TProductList['data']
 }
 
 const GroupCard = ({ cards }: Props) => (
