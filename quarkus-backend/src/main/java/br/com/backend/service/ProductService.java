@@ -14,7 +14,7 @@ import java.util.Objects;
 public class ProductService {
 
     private long getCountIfFirstFind(int indexForPage) {
-        if (indexForPage > 0)
+        if (indexForPage == 0)
             return Product.count();
 
         return 0;

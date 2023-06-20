@@ -19,20 +19,20 @@ public class ProductResource {
     private ProductService productService;
 
     @GET
-    public ProductListDTO findAll(@QueryParam("index") int index, @QueryParam("size") int size) {
-        return productService.get(index, size);
+    public ProductListDTO findAll(@QueryParam("index") int index, @QueryParam("max") int max) {
+        return productService.get(index, max);
     }
 
     @GET
     @Path("price/lowest")
-    public ProductListDTO findLowestPrice(@QueryParam("index") int index, @QueryParam("size") int size) {
-        return productService.lowestPrice(index, size);
+    public ProductListDTO findLowestPrice(@QueryParam("index") int index, @QueryParam("max") int max) {
+        return productService.lowestPrice(index, max);
     }
 
     @GET
     @Path("price/highest")
-    public ProductListDTO findHighestPrice(@QueryParam("index") int index, @QueryParam("size") int size) {
-        return productService.highestPrice(index, size);
+    public ProductListDTO findHighestPrice(@QueryParam("index") int index, @QueryParam("max") int max) {
+        return productService.highestPrice(index, max);
     }
 
     @POST
