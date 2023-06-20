@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 interface Option {
     name: string
     active: boolean
+    fetch: () => Promise<void>
 }
 
 export interface Props {
@@ -50,6 +51,7 @@ export default function Dropdown({ className, options }: Props) {
                                     {({ active }) => (
                                         <button
                                             className={`${backgroundColorByMenu(menu.active, active)} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            onClick={menu.fetch}
                                         >
                                             {menu.name}
                                         </button>

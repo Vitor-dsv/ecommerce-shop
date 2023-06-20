@@ -1,16 +1,17 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { useContext } from 'react'
+import { UseProductContext } from '../Providers/useProductsProvider'
+import { TUseProducts } from '../hooks/useProducts'
 
-interface Props {
-    quantityPage: number
-    activePage: number
-}
+const Pagination = () => {
+    const { countAll, index: activePage } = useContext(UseProductContext) as TUseProducts
 
-const Pagination = ({ quantityPage, activePage }: Props) => {
     const getPages = (): string[] => {
         let pages: string[] = [];
 
-        for (let index = 0; index < quantityPage; index++)
-            pages.push((index + 1).toString());
+        if (countAll)
+            for (let index = 0; index < countAll; index++)
+                pages.push((index + 1).toString());
 
         return pages;
     }
