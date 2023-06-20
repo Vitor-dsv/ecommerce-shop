@@ -19,7 +19,7 @@ const categories = [
 ]
 
 const OrderCard = () => {
-    const [optionActive, setOptionActive] = useState<number>(0)
+    const [optionActive, setOptionActive] = useState<number>()
     const { getAllHighestPrice, getAllLowestPrice } = useContext(UseProductContext) as TUseProducts
 
     const options = useMemo(() => [
