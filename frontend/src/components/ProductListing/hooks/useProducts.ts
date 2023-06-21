@@ -14,6 +14,7 @@ export enum EFilterProducts {
 }
 
 export type TUseProducts = {
+  isLoading: boolean
   index: number
   countAll?: number
   products?: TProductList['data']
@@ -26,6 +27,7 @@ export type TUseProducts = {
 const INITIAL_INDEX = 0
 
 export const useProducts = (max: number) => {
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [products, setProducts] = useState<TProductList['data']>()
   const [index, setIndex] = useState<number>(INITIAL_INDEX)
   const [countAll, setCountAll] = useState<number>()
@@ -36,6 +38,7 @@ export const useProducts = (max: number) => {
     filter: EFilterProducts,
     fetch: (params: TQueryParamsPaging) => Promise<TProductList>,
   ) => {
+    setIsLoading(true)
     setIndex(index)
     setFilter(filter)
 
@@ -44,6 +47,7 @@ export const useProducts = (max: number) => {
     if (index === 0) setCountAll(countAll)
 
     setProducts(data)
+    setIsLoading(false)
   }
 
   const getAll = async (index: number) =>
@@ -75,6 +79,7 @@ export const useProducts = (max: number) => {
   )
 
   return {
+    isLoading,
     products,
     filter,
     index,

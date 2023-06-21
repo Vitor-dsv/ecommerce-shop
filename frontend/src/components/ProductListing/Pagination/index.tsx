@@ -4,7 +4,7 @@ import { UseProductContext } from '../Providers/useProductsProvider'
 import { EFilterProducts, TUseProducts } from '../hooks/useProducts'
 
 const Pagination = () => {
-    const { countAll, index: activePage, getAll, getAllHighestPrice, getAllLowestPrice, filter } = useContext(UseProductContext) as TUseProducts
+    const { isLoading, countAll, index: activePage, getAll, getAllHighestPrice, getAllLowestPrice, filter } = useContext(UseProductContext) as TUseProducts
 
     const fetch = (newPage: number) => {
         if (newPage >= 0 && newPage <= getPages.length - 1 && newPage !== activePage)
@@ -31,7 +31,7 @@ const Pagination = () => {
     }, [countAll])
 
     return (
-        <div className="flex items-center dk:justify-between">
+        <div className={`${isLoading ? 'opacity-20' : ''} flex items-center dk:justify-between`}>
             <div className="flex flex-1 items-center justify-between md:w-full">
                 <div>
                     <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">

@@ -15,12 +15,13 @@ const UseProductsProvider = ({ children }: Props) => {
     getAll,
     getAllHighestPrice,
     getAllLowestPrice,
-    filter
+    filter,
+    isLoading
   } = useProducts(10)
 
   return (
     <UseProductContext.Provider
-      value={{ filter, products, countAll, index, getAll, getAllHighestPrice, getAllLowestPrice }}
+      value={{ filter, products, countAll, index, getAll, getAllHighestPrice, getAllLowestPrice, isLoading }}
     >
       {children}
     </UseProductContext.Provider>

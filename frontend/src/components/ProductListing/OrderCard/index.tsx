@@ -1,7 +1,7 @@
 import Dropdown from "@/shared/Dropdown";
 import Categories from "./Categories";
 import { UseProductContext } from "../Providers/useProductsProvider";
-import { useContext, useMemo, useState } from "react";
+import { Fragment, useContext, useMemo, useState } from "react";
 import { TUseProducts } from "../hooks/useProducts";
 import Pagination from "../Pagination";
 
@@ -20,7 +20,7 @@ const categories = [
 
 const OrderCard = () => {
     const [optionActive, setOptionActive] = useState<number>()
-    const { getAllHighestPrice, getAllLowestPrice } = useContext(UseProductContext) as TUseProducts
+    const { isLoading, getAllHighestPrice, getAllLowestPrice } = useContext(UseProductContext) as TUseProducts
 
     const options = useMemo(() => [
         {
@@ -43,7 +43,7 @@ const OrderCard = () => {
 
     return (
         <>
-            <div className='mt-8 mb-8 ml-10 mr-10 h-12 flex md:flex-col justify-between md:m-4 md:h-20 md:gap-4'>
+            <div aria-disabled={isLoading} className={`mt-8 mb-8 ml-10 mr-10 h-12 flex md:flex-col justify-between md:m-4 md:h-20 md:gap-4 disabled:pointer-events-none disabled:opacity-20`}>
                 <Categories oderCategories={categories} />
                 <Dropdown className="z-50" options={options} />
             </div>
