@@ -19,27 +19,27 @@ public class ProductResource {
     private ProductService productService;
 
     @GET
-    public ProductListDTO findAll(@QueryParam("index") int index, @QueryParam("max") int max) {
-        return productService.get(index, max);
+    public ProductListDTO findAll(@QueryParam("index") int index, @QueryParam("max") int max, @QueryParam("idCategory") Long idCategory) {
+        return productService.get(index, max, idCategory);
     }
 
     @GET
     @Path("price/lowest")
-    public ProductListDTO findLowestPrice(@QueryParam("index") int index, @QueryParam("max") int max) {
-        return productService.lowestPrice(index, max);
+    public ProductListDTO findLowestPrice(@QueryParam("index") int index, @QueryParam("max") int max, @QueryParam("idCategory") Long idCategory) {
+        return productService.lowestPrice(index, max, idCategory);
     }
 
     @GET
     @Path("price/highest")
-    public ProductListDTO findHighestPrice(@QueryParam("index") int index, @QueryParam("max") int max) {
-        return productService.highestPrice(index, max);
+    public ProductListDTO findHighestPrice(@QueryParam("index") int index, @QueryParam("max") int max, @QueryParam("idCategory") Long idCategory) {
+        return productService.highestPrice(index, max, idCategory);
     }
 
     @POST
     @Transactional
     public Response create(Product product) {
         if (productService.productIsEmpty(product))
-            return Response.status(404, "Product is empty!").build();
+            return Response.status(403, "Product is empty!").build();
 
         Product.persist(product);
 
@@ -51,7 +51,7 @@ public class ProductResource {
     @Transactional
     public Response update(@PathParam("id") Long id, Product product) {
         if (productService.productIsEmpty(product))
-            return Response.status(404, "Product is empty!").build();
+            return Response.status(403, "Product is empty!").build();
 
         Product productUpdate = productService.update(id, product);
 

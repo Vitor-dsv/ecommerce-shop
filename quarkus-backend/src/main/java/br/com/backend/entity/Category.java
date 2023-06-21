@@ -8,21 +8,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Product extends PanacheEntityBase {
+public class Category extends PanacheEntityBase {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String src;
-
-    @Column
-    private String description;
-
-    @Column
-    private Double monetaryValue;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoryId")
-    private Category category;
+    private String name;
 }
